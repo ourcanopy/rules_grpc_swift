@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package foo;
+
+service Foo {
+  rpc Baz (Testy) returns (Testy) {}
+}
+
+message Testy {
+  string foo = 1;
+  int32 bar = 2;
+}
