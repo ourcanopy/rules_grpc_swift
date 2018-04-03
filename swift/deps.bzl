@@ -21,21 +21,20 @@ _DEPS = {
     "build_bazel_rules_apple": {
         "rule": "git_repository",
         "remote": "https://github.com/bazelbuild/rules_apple.git",
-        "tag": "0.2.0",
+        "tag": "0.4.0",
     },
 
     "com_github_apple_swift_protobuf": {
         "rule": "new_git_repository",
         "remote": "https://github.com/apple/swift-protobuf.git",
-        "tag": "1.0.2",
+        "tag": "1.0.3",
         "build_file_content": SWIFT_PROTOBUF_BUILD_FILE_CONTENT,
     },
 
     "com_github_grpc_grpc_swift": {
         "rule": "new_git_repository",
         "remote": "https://github.com/grpc/grpc-swift.git",
-        # "tag": "0.3.2",
-        "commit": "d69c4e32ef83ad523e9fc6e0e867182fcef5210b",
+        "tag": "0.3.3",
         "build_file_content": GRPC_SWIFT_BUILD_FILE_CONTENT,
     }, 
 

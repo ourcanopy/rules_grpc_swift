@@ -65,9 +65,9 @@ swift_library(
     name = "gRPC",
     module_name = "gRPC",
     srcs = glob(["Sources/gRPC/*.swift"]),
-    swift_version = 4,
     deps = [":CgRPC_bridge"],
     copts = [
+        "-swift-version", "4",
         "-import-objc-header",
         "external/com_github_grpc_grpc_swift/Sources/CgRPC/include/CgRPC.h",
     ],
@@ -76,7 +76,9 @@ swift_library(
 swift_library(
     name = "lib_TemplateEncoder",
     srcs = glob(["Plugin/Sources/TemplateEncoder/*.swift"]),
-    swift_version = 4,
+    copts = [
+        "-swift-version", "4"
+    ]
 )
 
 macos_command_line_application(
@@ -103,7 +105,9 @@ swift_library(
     ) + [
         "Plugin/Sources/protoc-gen-swiftgrpc/gen-templates.swift",
     ],
-    swift_version = 4,
+     copts = [
+        "-swift-version", "4"
+    ],
     deps = [
         "@com_github_kylef_stencil//:Stencil",
         "@com_github_apple_swift_protobuf//:SwiftProtobuf",

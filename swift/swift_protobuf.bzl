@@ -14,14 +14,14 @@ swift_library(
     name = "SwiftProtobuf",
     module_name = "SwiftProtobuf",
     srcs = glob(["Sources/SwiftProtobuf/*.swift"]),
-    swift_version = 4,
+    copts = ["-swift-version", "4"],
 )
 
 swift_library(
     name = "SwiftProtobufPluginLibrary",
     module_name = "SwiftProtobufPluginLibrary",
     srcs = glob(["Sources/SwiftProtobufPluginLibrary/*.swift"]),
-    swift_version = 4,
+    copts = ["-swift-version", "4"],
     deps = [
         ":SwiftProtobuf",
     ],
@@ -30,7 +30,7 @@ swift_library(
 swift_library(
     name = "protoc_gen_swift_lib",
     srcs = glob(["Sources/protoc-gen-swift/*.swift"]),
-    swift_version = 4,
+    copts = ["-swift-version", "4"],
     deps = [
         ":SwiftProtobuf",
         ":SwiftProtobufPluginLibrary",

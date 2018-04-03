@@ -8,7 +8,7 @@ load("@build_bazel_rules_apple//apple:swift.bzl", "swift_library")
 swift_library(
     name = "Stencil",
     srcs = glob(["Sources/*.swift"]),
-    swift_version = 3,
+    copts = ["-swift-version", "3"],
     deps = [
         "@com_github_kylef_pathkit//:PathKit",
         "@com_github_kylef_spectre//:Spectre",
