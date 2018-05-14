@@ -6,7 +6,7 @@ PB_COMPILE_DEPS = [
 ]
 
 GRPC_COMPILE_DEPS = PB_COMPILE_DEPS + [
-    "@com_github_grpc_grpc_swift//:gRPC",
+    "@com_github_grpc_grpc_swift//:SwiftGRPC",
 ]
 
 def swift_proto_library(name, langs=[str(Label("//swift"))],

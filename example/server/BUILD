@@ -9,10 +9,9 @@ swift_library(
     name = "Server",
     srcs = glob(["*.swift"]),
     deps = [
-        "@com_github_grpc_grpc_swift//:gRPC",
+        "@com_github_grpc_grpc_swift//:SwiftGRPC",
         "//example/proto:Foo",
     ],
-    swift_version = 4,
 )
 
 macos_command_line_application(

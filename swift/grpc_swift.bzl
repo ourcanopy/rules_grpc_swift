@@ -62,11 +62,13 @@ objc_library(
 )
 
 swift_library(
-    name = "gRPC",
-    module_name = "gRPC",
-    srcs = glob(["Sources/gRPC/*.swift"]),
-    swift_version = 4,
-    deps = [":CgRPC_bridge"],
+    name = "SwiftGRPC",
+    module_name = "SwiftGRPC",
+    srcs = glob(["Sources/SwiftGRPC/**/*.swift"]),
+    deps = [
+        "@com_github_apple_swift_protobuf//:SwiftProtobuf",
+        ":CgRPC_bridge",
+    ],
     copts = [
         "-import-objc-header",
         "external/com_github_grpc_grpc_swift/Sources/CgRPC/include/CgRPC.h",
@@ -74,38 +76,9 @@ swift_library(
 )
 
 swift_library(
-    name = "lib_TemplateEncoder",
-    srcs = glob(["Plugin/Sources/TemplateEncoder/*.swift"]),
-    swift_version = 4,
-)
-
-macos_command_line_application(
-    name = "TemplateEncoder",
-    deps = [":lib_TemplateEncoder"],
-)
-
-genrule(
-    name = "gen_templates",
-    tools = [":TemplateEncoder"],
-    srcs = glob(["Plugin/Templates/*.swift"]),
-    outs = ["Plugin/Sources/protoc-gen-swiftgrpc/gen-templates.swift"],
-    cmd = "ROOT=$$(pwd);" +
-          "cd external/com_github_grpc_grpc_swift/Plugin;" +
-          "$$ROOT/$(location :TemplateEncoder) > $$ROOT/$(location " +
-          "Plugin/Sources/protoc-gen-swiftgrpc/gen-templates.swift)",
-)
-
-swift_library(
     name = "lib_protoc_gen_swiftgrpc",
-    srcs = glob(
-        include = ["Plugin/Sources/protoc-gen-swiftgrpc/*.swift"],
-        exclude = ["Plugin/Sources/protoc-gen-swiftgrpc/templates.swift"],
-    ) + [
-        "Plugin/Sources/protoc-gen-swiftgrpc/gen-templates.swift",
-    ],
-    swift_version = 4,
+    srcs = glob(["Sources/protoc-gen-swiftgrpc/*.swift"]),
     deps = [
-        "@com_github_kylef_stencil//:Stencil",
         "@com_github_apple_swift_protobuf//:SwiftProtobuf",
         "@com_github_apple_swift_protobuf//:SwiftProtobufPluginLibrary",
     ],
