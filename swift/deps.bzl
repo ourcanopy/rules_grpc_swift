@@ -21,7 +21,7 @@ _DEPS = {
     "build_bazel_rules_apple": {
         "rule": "git_repository",
         "remote": "https://github.com/bazelbuild/rules_apple.git",
-        "tag": "0.4.0",
+        "tag": "0.7.0",
     },
 
     "com_github_apple_swift_protobuf": {
@@ -36,7 +36,7 @@ _DEPS = {
         "remote": "https://github.com/grpc/grpc-swift.git",
         "tag": "0.3.3",
         "build_file_content": GRPC_SWIFT_BUILD_FILE_CONTENT,
-    }, 
+    },
 
     "com_github_kylef_pathkit": {
         "rule": "new_git_repository",
