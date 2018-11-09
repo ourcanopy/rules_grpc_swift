@@ -17,12 +17,7 @@ _REQUIRES = [
 ]
 
 _DEPS = {
-
-    "build_bazel_rules_apple": {
-        "rule": "git_repository",
-        "remote": "https://github.com/bazelbuild/rules_apple.git",
-        "tag": "0.8.0",
-    },
+    # rules_apple removed, we get it from elsewhere.
 
     "com_github_apple_swift_protobuf": {
         "rule": "new_git_repository",
