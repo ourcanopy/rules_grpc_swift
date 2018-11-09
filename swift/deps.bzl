@@ -7,7 +7,6 @@ load("//swift:swift_protobuf.bzl", "SWIFT_PROTOBUF_BUILD_FILE_CONTENT")
 load("//swift:zlib.bzl", "ZLIB_BUILD_FILE_CONTENT")
 
 _REQUIRES = [
-    "build_bazel_rules_apple",
     "com_github_apple_swift_protobuf",
     "com_github_grpc_grpc_swift",
     "com_github_kylef_pathkit",
