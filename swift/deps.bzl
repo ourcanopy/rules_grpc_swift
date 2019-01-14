@@ -1,22 +1,24 @@
 load("@org_pubref_rules_protobuf//protobuf:rules.bzl", "proto_repositories")
 load("//swift:grpc_swift.bzl", "GRPC_SWIFT_BUILD_FILE_CONTENT")
-load("//swift:pathkit.bzl", "PATHKIT_BUILD_FILE_CONTENT")
-load("//swift:spectre.bzl", "SPECTRE_BUILD_FILE_CONTENT")
-load("//swift:stencil.bzl", "STENCIL_BUILD_FILE_CONTENT")
 load("//swift:swift_protobuf.bzl", "SWIFT_PROTOBUF_BUILD_FILE_CONTENT")
 load("//swift:zlib.bzl", "ZLIB_BUILD_FILE_CONTENT")
 
 _REQUIRES = [
+    "bazel_skylib",
     "build_bazel_rules_apple",
     "com_github_apple_swift_protobuf",
     "com_github_grpc_grpc_swift",
-    "com_github_kylef_pathkit",
-    "com_github_kylef_spectre",
-    "com_github_kylef_stencil",
+    "build_bazel_rules_swift",
     "com_github_zewograveyard_czlib",
 ]
 
 _DEPS = {
+
+    "bazel_skylib": {
+        "rule": "git_repository",
+        "remote": "https://github.com/bazelbuild/bazel-skylib.git",
+        "tag": "0.6.0",
+    },
 
     "build_bazel_rules_apple": {
         "rule": "git_repository",
@@ -38,26 +40,10 @@ _DEPS = {
         "build_file_content": GRPC_SWIFT_BUILD_FILE_CONTENT,
     },
 
-    "com_github_kylef_pathkit": {
-        "rule": "new_git_repository",
-        "remote": "https://github.com/kylef/PathKit.git",
-        "tag": "0.9.0",
-        "build_file_content": PATHKIT_BUILD_FILE_CONTENT,
-    },
-
-    "com_github_kylef_spectre": {
-        "rule": "new_git_repository",
-        "remote": "https://github.com/kylef/Spectre.git",
-        "tag": "0.8.0",
-        "build_file_content": SPECTRE_BUILD_FILE_CONTENT,
-    },
-
-    "com_github_kylef_stencil": {
-        "rule": "new_git_repository",
-        "remote": "https://github.com/kylef/Stencil.git",
-        # v0.10.1 seems broken...
-        "tag": "0.10.0",
-        "build_file_content": STENCIL_BUILD_FILE_CONTENT,
+    "build_bazel_rules_swift": {
+        "rule": "git_repository",
+        "remote": "https://github.com/bazelbuild/rules_swift.git",
+        "commit": "2d7da74dffe94d1b7482b92e9c8c276b94eeefdc",
     },
 
     "com_github_zewograveyard_czlib": {

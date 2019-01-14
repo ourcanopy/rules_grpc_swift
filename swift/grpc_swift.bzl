@@ -62,12 +62,14 @@ objc_library(
 )
 
 swift_library(
-    name = "gRPC",
-    module_name = "gRPC",
-    srcs = glob(["Sources/gRPC/*.swift"]),
-    deps = [":CgRPC_bridge"],
+    name = "SwiftGRPC",
+    module_name = "SwiftGRPC",
+    srcs = glob(["Sources/SwiftGRPC/**/*.swift"]),
+    deps = [
+        "@com_github_apple_swift_protobuf//:SwiftProtobuf",
+        ":CgRPC_bridge",
+    ],
     copts = [
-        "-swift-version", "4",
         "-import-objc-header",
         "external/com_github_grpc_grpc_swift/Sources/CgRPC/include/CgRPC.h",
     ],
@@ -75,17 +77,8 @@ swift_library(
 
 swift_library(
     name = "lib_protoc_gen_swiftgrpc",
-    srcs = glob(
-        include = ["Sources/protoc-gen-swiftgrpc/*.swift"],
-        exclude = ["Sources/protoc-gen-swiftgrpc/templates.swift"],
-    ) + [
-        "Sources/protoc-gen-swiftgrpc/gen-templates.swift",
-    ],
-     copts = [
-        "-swift-version", "4"
-    ],
+    srcs = glob(["Sources/protoc-gen-swiftgrpc/*.swift"]),
     deps = [
-        "@com_github_kylef_stencil//:Stencil",
         "@com_github_apple_swift_protobuf//:SwiftProtobuf",
         "@com_github_apple_swift_protobuf//:SwiftProtobufPluginLibrary",
     ],
