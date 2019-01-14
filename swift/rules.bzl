@@ -1,5 +1,5 @@
 load("@org_pubref_rules_protobuf//protobuf:rules.bzl", "proto_compile")
-load("@build_bazel_rules_apple//apple:swift.bzl", "swift_library")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 
 PB_COMPILE_DEPS = [
     "@com_github_apple_swift_protobuf//:SwiftProtobuf",

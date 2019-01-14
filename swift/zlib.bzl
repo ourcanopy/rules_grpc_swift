@@ -3,7 +3,7 @@ package(default_visibility = ["//visibility:public"])
 
 licenses(["notice"]) # zlib license
 
-load("@build_bazel_rules_apple//apple:swift.bzl", "swift_library")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 
 cc_library(
     name = "zlib",
