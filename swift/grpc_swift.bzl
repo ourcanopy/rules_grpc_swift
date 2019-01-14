@@ -76,10 +76,10 @@ swift_library(
 swift_library(
     name = "lib_protoc_gen_swiftgrpc",
     srcs = glob(
-        include = ["Plugin/Sources/protoc-gen-swiftgrpc/*.swift"],
-        exclude = ["Plugin/Sources/protoc-gen-swiftgrpc/templates.swift"],
+        include = ["Sources/protoc-gen-swiftgrpc/*.swift"],
+        exclude = ["Sources/protoc-gen-swiftgrpc/templates.swift"],
     ) + [
-        "Plugin/Sources/protoc-gen-swiftgrpc/gen-templates.swift",
+        "Sources/protoc-gen-swiftgrpc/gen-templates.swift",
     ],
      copts = [
         "-swift-version", "4"
