@@ -17,6 +17,7 @@ cc_library(
     srcs = glob(
         include = [
             "Sources/BoringSSL/**/*.c",
+            "Sources/BoringSSL/**/*.cc",
             "Sources/BoringSSL/**/*.h",
         ],
         exclude = [
