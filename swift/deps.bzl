@@ -27,14 +27,14 @@ _DEPS = {
     "com_github_apple_swift_protobuf": {
         "rule": "new_git_repository",
         "remote": "https://github.com/apple/swift-protobuf.git",
-        "tag": "1.0.3",
+        "tag": "1.3.1",
         "build_file_content": SWIFT_PROTOBUF_BUILD_FILE_CONTENT,
     },
 
     "com_github_grpc_grpc_swift": {
         "rule": "new_git_repository",
         "remote": "https://github.com/grpc/grpc-swift.git",
-        "tag": "0.3.3",
+        "tag": "0.7.0",
         "build_file_content": GRPC_SWIFT_BUILD_FILE_CONTENT,
     },
 
