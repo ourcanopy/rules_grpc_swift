@@ -17,7 +17,7 @@ _DEPS = {
     "bazel_skylib": {
         "rule": "git_repository",
         "remote": "https://github.com/bazelbuild/bazel-skylib.git",
-        "tag": "0.6.0",
+        "tag": "0.4.0",
     },
 
     "build_bazel_rules_apple": {
