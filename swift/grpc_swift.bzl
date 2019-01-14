@@ -74,30 +74,6 @@ swift_library(
 )
 
 swift_library(
-    name = "lib_TemplateEncoder",
-    srcs = glob(["Plugin/Sources/TemplateEncoder/*.swift"]),
-    copts = [
-        "-swift-version", "4"
-    ]
-)
-
-macos_command_line_application(
-    name = "TemplateEncoder",
-    deps = [":lib_TemplateEncoder"],
-)
-
-genrule(
-    name = "gen_templates",
-    tools = [":TemplateEncoder"],
-    srcs = glob(["Plugin/Templates/*.swift"]),
-    outs = ["Plugin/Sources/protoc-gen-swiftgrpc/gen-templates.swift"],
-    cmd = "ROOT=$$(pwd);" +
-          "cd external/com_github_grpc_grpc_swift/Plugin;" +
-          "$$ROOT/$(location :TemplateEncoder) > $$ROOT/$(location " +
-          "Plugin/Sources/protoc-gen-swiftgrpc/gen-templates.swift)",
-)
-
-swift_library(
     name = "lib_protoc_gen_swiftgrpc",
     srcs = glob(
         include = ["Plugin/Sources/protoc-gen-swiftgrpc/*.swift"],
