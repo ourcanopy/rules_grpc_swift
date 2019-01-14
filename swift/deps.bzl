@@ -21,7 +21,7 @@ _DEPS = {
     "build_bazel_rules_apple": {
         "rule": "git_repository",
         "remote": "https://github.com/bazelbuild/rules_apple.git",
-        "tag": "0.8.0",
+        "commit": "f75c4b1be219cb32704d900bd1a42ab200eab445",
     },
 
     "com_github_apple_swift_protobuf": {
