@@ -18,9 +18,9 @@ def swift_proto_library(name, deps=[], with_grpc=False):
 
   swift_proto_deps = GRPC_COMPILE_DEPS if with_grpc else PB_COMPILE_DEPS
 
-  proto_compile_args["plugins"] = ["//swift:swift"]
+  proto_compile_args["plugins"] = [str(Label("//swift:swift"))]
   if with_grpc:
-    proto_compile_args["plugins"] += ["//swift:grpc_swift"]
+    proto_compile_args["plugins"] += [str(Label("//swift:grpc_swift"))]
 
   proto_compile(**proto_compile_args)
 
