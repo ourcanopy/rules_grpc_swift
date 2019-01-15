@@ -23,36 +23,11 @@ git_repository(
 load("@build_bazel_rules_apple//apple:repositories.bzl", "apple_rules_dependencies")
 apple_rules_dependencies()
 
-load("//swift:deps.bzl", "shared_deps")
+load("//swift:deps.bzl", "grpc_swift_deps")
+grpc_swift_deps()
 
-shared_deps()
 load(
     "@build_bazel_rules_swift//swift:repositories.bzl",
     "swift_rules_dependencies",
 )
 swift_rules_dependencies()
-
-load("//swift:grpc_swift.bzl", "GRPC_SWIFT_BUILD_FILE_CONTENT")
-load("//swift:swift_protobuf.bzl", "SWIFT_PROTOBUF_BUILD_FILE_CONTENT")
-load("//swift:zlib.bzl", "ZLIB_BUILD_FILE_CONTENT")
-
-new_git_repository(
-    name = "com_github_apple_swift_protobuf",
-    remote = "https://github.com/apple/swift-protobuf.git",
-    tag = "1.3.1",
-    build_file_content = SWIFT_PROTOBUF_BUILD_FILE_CONTENT,
-)
-
-new_git_repository(
-    name = "com_github_grpc_grpc_swift",
-    remote = "https://github.com/grpc/grpc-swift.git",
-    tag = "0.7.0",
-    build_file_content = GRPC_SWIFT_BUILD_FILE_CONTENT,
-)
-
-new_git_repository(
-    name = "com_github_zewograveyard_czlib",
-    remote = "https://github.com/zewograveyard/CZlib.git",
-    tag = "0.4.0",
-    build_file_content = ZLIB_BUILD_FILE_CONTENT,
-)
