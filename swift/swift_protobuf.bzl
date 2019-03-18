@@ -36,6 +36,7 @@ swift_library(
 
 macos_command_line_application(
     name = "protoc-gen-swift",
+    minimum_os_version = "10.10",
     deps = [
         ":protoc_gen_swift_lib",
     ],

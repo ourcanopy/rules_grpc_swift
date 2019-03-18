@@ -16,5 +16,6 @@ swift_library(
 
 macos_command_line_application(
     name = "server",
+    minimum_os_version = "10.10",
     deps = [":Server"],
 )
