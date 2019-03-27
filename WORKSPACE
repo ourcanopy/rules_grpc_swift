@@ -16,12 +16,19 @@ http_archive(
 )
 
 git_repository(
+    name = "build_bazel_rules_swift",
+    remote = "https://github.com/bazelbuild/rules_swift.git",
+    #tag = "0.7.0",
+    commit = "2cebf7b1ad8dc2a451822aa1461dc9bd1fb646df",
+)
+
+git_repository(
     name = "build_bazel_rules_apple",
     remote = "https://github.com/bazelbuild/rules_apple.git",
     tag = "0.12.0",
 )
 load("@build_bazel_rules_apple//apple:repositories.bzl", "apple_rules_dependencies")
-apple_rules_dependencies()
+apple_rules_dependencies(ignore_version_differences=True)
 
 load("//swift:deps.bzl", "grpc_swift_deps")
 grpc_swift_deps()
