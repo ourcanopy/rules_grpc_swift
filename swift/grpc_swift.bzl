@@ -87,6 +87,7 @@ swift_library(
 
 macos_command_line_application(
     name = "protoc-gen-swiftgrpc",
+    minimum_os_version = "10.10",
     deps = [":lib_protoc_gen_swiftgrpc"],
 )
 """
