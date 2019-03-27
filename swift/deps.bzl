@@ -24,14 +24,14 @@ def grpc_swift_deps():
     new_git_repository(
         name = "com_github_apple_swift_protobuf",
         remote = "https://github.com/apple/swift-protobuf.git",
-        tag = "1.3.1",
+        tag = "1.4.0",
         build_file_content = SWIFT_PROTOBUF_BUILD_FILE_CONTENT,
     )
 
     new_git_repository(
         name = "com_github_grpc_grpc_swift",
         remote = "https://github.com/grpc/grpc-swift.git",
-        tag = "0.7.0",
+        tag = "0.8.0",
         build_file_content = GRPC_SWIFT_BUILD_FILE_CONTENT,
     )
 
