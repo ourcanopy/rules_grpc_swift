@@ -26,10 +26,11 @@ cc_library(
     ),
 )
 
+
 cc_library(
     name = "nanopb",
-    strip_include_prefix = "Sources/CgRPC/third_party/nanopb",
-    hdrs = glob(["Sources/CgRPC/third_party/nanopb/*.h"]),
+    strip_include_prefix = "Sources/CgRPC/include",
+    hdrs = glob(["Sources/CgRPC/include/**/*.h"]),
     srcs = glob(["Sources/CgRPC/third_party/nanopb/*.c"]),
 )
 
